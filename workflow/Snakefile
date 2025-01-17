@@ -41,12 +41,13 @@ rule load_criteria:
     conda: "envs/sqlite.yaml"
     shell:
         """
-        sqlite3 {input.db} <<CRITERIA
+        sqlite3 {input.db} <<'CRITERIA'
+DELETE FROM criteria;
 .mode tabs
 .import {input.criteria} criteria
 .quit
 CRITERIA
-2> {log} && touch {output}
+        2> {log} && touch {output}
         """
 
 # Rule for applying indexes to the database
