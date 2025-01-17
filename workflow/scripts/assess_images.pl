@@ -15,8 +15,8 @@ use Log::Log4perl qw(:easy);
 our $SLEEP = 500;
 
 # endpoints to the CAOS object store. I wonder if the port number is fixed.
-my $base_url  = 'https://caos.boldsystems.org:31488/api/images?processids=';
-my $image_url = 'https://caos.boldsystems.org:31488/api/objects/';
+my $base_url  = 'https://caos.boldsystems.org:443/api/images?processids=';
+my $image_url = 'https://caos.boldsystems.org:443/api/objects/';
 
 # Process command line arguments
 my $db_file;  # where to access database file
