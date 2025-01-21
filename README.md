@@ -29,7 +29,7 @@ to the current state of the art.
 ## Install
 Clone the repo:
 ```{shell}
-git clone https://github.com/FabianDeister/Library_curation_BOLD.git
+git clone https://github.com/domivika/Library_curation_BOLD.git
 ```
 Change directory: 
 ```{shell}
