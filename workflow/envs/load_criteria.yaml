@@ -1,7 +1,0 @@
-name: load_taxonomy
-channels:
-  - conda-forge
-  - bioconda
-  - defaults
-dependencies:
-  - sqlite

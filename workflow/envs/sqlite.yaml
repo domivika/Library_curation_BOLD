@@ -1,7 +1,0 @@
-name: sqlite
-channels:
-  - conda-forge
-  - bioconda
-  - defaults
-dependencies:
-  - sqlite

@@ -1,7 +1,0 @@
-name: apply_indexes
-channels:
-  - conda-forge
-  - bioconda
-  - defaults
-dependencies:
-  - sqlite
