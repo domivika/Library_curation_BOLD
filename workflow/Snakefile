@@ -30,8 +30,6 @@ rule access_species_id:
     output:
         "results/accessed_SPECIES_ID.tsv"
     log: "logs/access_species_id.log"
-    resources:
-        mem_gb= 20
     shell:
         "python workflow/scripts/access_criteria.py --bold_data_tsv {input.bold_data} --criterion SPECIES_ID --output_tsv {output}"
 
@@ -72,13 +70,12 @@ rule access_has_image:
     input:
         bold_data="results/bold_with_criteria.tsv"
     output:
-        "results/accessed_HAS_IMAGE.tsv",
-        "results/image_urls.tsv" if config["IMAGE_URL"] else "results/accessed_HAS_IMAGE.tsv"
+        "results/accessed_HAS_IMAGE.tsv"
     params:
         image_url_flag="--image_url" if config["IMAGE_URL"] else ""
     log: "logs/access_has_image.log"
     resources:
-        mem_gb= 50
+        mem_gb= 100
     shell:
         """
         python workflow/scripts/access_criteria.py --bold_data_tsv {input.bold_data} \
@@ -90,6 +87,7 @@ rule access_identifier:
         bold_data="results/bold_with_criteria.tsv"
     output:
         "results/accessed_IDENTIFIER.tsv"
+        
     log: "logs/access_identifier.log"
     resources:
         mem_gb= 20
@@ -204,8 +202,6 @@ rule ranking_score:
     output:
         "results/result_output.tsv"
     log: "logs/output_filtered_data.log"
-    resources:
-        mem_gb= 250000
     shell:
         "python workflow/scripts/ranking_score.py --db_file {input.db_file} --criteria_file {input.criteria_file} --output_path {output}"
 
