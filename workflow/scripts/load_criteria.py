@@ -11,6 +11,15 @@ Output:
 import pandas as pd
 import argparse
 import logging
+import aiohttp
+
+async def fetch_images(session, process_ids):
+    try:
+        async with session.get(BASE_URL + process_ids, timeout=aiohttp.ClientTimeout(total=60)) as response:
+            return await response.json()
+    except asyncio.TimeoutError:
+        logging.error(f"Timeout error for process_ids: {process_ids}")
+        return None
 
 def load_criteria(criteria, bold_data_tsv, output_tsv):
     """

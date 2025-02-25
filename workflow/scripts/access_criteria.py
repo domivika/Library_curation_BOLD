@@ -19,10 +19,10 @@ from aiohttp import ClientSession, ClientTimeout
 # Constants for HAS_IMAGE criterion
 BASE_URL = 'https://caos.boldsystems.org:443/api/images?processids='
 IMAGE_URL = 'https://caos.boldsystems.org:443/api/objects/'
-CHUNK_SIZE = 100  # Increased chunk size for better performance
+CHUNK_SIZE = 200  # Increased chunk size for better performance
 SLEEP = 0.5  # seconds
 MAX_RETRIES = 3  # Maximum number of retries for failed requests
-CONCURRENT_REQUESTS = 10  # Limit the number of concurrent requests
+CONCURRENT_REQUESTS = 300  # Limit the number of concurrent requests
 
 async def fetch_images(session, process_ids, retries=0):
     try:
