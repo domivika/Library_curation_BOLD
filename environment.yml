@@ -1,0 +1,19 @@
+name: bold_curation
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.8
+  - pandas
+  - snakemake>=7.0
+  - aiohttp
+  - jq
+  - curl
+  - numpy
+  - tqdm
+  - pytest
+  - pip
+  - pip:
+    - asyncio
+    - python-dotenv
